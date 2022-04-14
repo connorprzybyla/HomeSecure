@@ -10,22 +10,18 @@ import UIKit
 
 class TabBarVC: UITabBarController, UITabBarControllerDelegate {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-        
     override func viewWillAppear(_ animated: Bool) {
         let viewControllers = buildViewControllers()
         self.viewControllers = viewControllers
     }
     
     private func buildViewControllers() -> [UIViewController] {
-        let homeVC = HomeVC()
-        homeVC.title = "Home"
+        let homeViewModel = HomeViewModel(urlSession: URLSession.shared)
+        let homeVC = HomeVC(viewModel: homeViewModel)
         let homeTabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
         homeVC.tabBarItem = homeTabBarItem
         
-        let historyVC = HomeVC()
+        let historyVC = HomeVC(viewModel: homeViewModel)
         let historyTabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
         historyVC.tabBarItem = historyTabBarItem
         

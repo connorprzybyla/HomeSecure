@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A16212128028D7000ABB159 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16212028028D7000ABB159 /* HomeViewModelTests.swift */; };
 		5A1FB86A27FE8CC80047CD64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB86927FE8CC80047CD64 /* AppDelegate.swift */; };
 		5A1FB86C27FE8CC80047CD64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB86B27FE8CC80047CD64 /* SceneDelegate.swift */; };
 		5A1FB86E27FE8CC80047CD64 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB86D27FE8CC80047CD64 /* HomeVC.swift */; };
@@ -17,8 +18,9 @@
 		5A1FB88D27FE8CC90047CD64 /* SecureMyHouseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB88C27FE8CC90047CD64 /* SecureMyHouseUITestsLaunchTests.swift */; };
 		5A1FB8F42801F4330047CD64 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB8F32801F4330047CD64 /* HomeViewModel.swift */; };
 		5A1FB8F62801F46B0047CD64 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB8F52801F46B0047CD64 /* APIError.swift */; };
-		5A1FB8FA2801F7190047CD64 /* UIView+AutoViewLayoutSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB8F92801F7190047CD64 /* UIView+AutoViewLayoutSetup.swift */; };
+		5A1FB8FA2801F7190047CD64 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB8F92801F7190047CD64 /* UIView+Extensions.swift */; };
 		5A1FB8FC2801F7EC0047CD64 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB8FB2801F7EC0047CD64 /* TabBarVC.swift */; };
+		5A74B6E62805E159005B91E8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A74B6E52805E159005B91E8 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A16212028028D7000ABB159 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		5A1FB86627FE8CC80047CD64 /* SecureMyHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureMyHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A1FB86927FE8CC80047CD64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A1FB86B27FE8CC80047CD64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,8 +56,9 @@
 		5A1FB88C27FE8CC90047CD64 /* SecureMyHouseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureMyHouseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5A1FB8F32801F4330047CD64 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5A1FB8F52801F46B0047CD64 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		5A1FB8F92801F7190047CD64 /* UIView+AutoViewLayoutSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoViewLayoutSetup.swift"; sourceTree = "<group>"; };
+		5A1FB8F92801F7190047CD64 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		5A1FB8FB2801F7EC0047CD64 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		5A74B6E52805E159005B91E8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A16211F28028D4C00ABB159 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5A16212028028D7000ABB159 /* HomeViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		5A1FB85D27FE8CC80047CD64 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +133,7 @@
 		5A1FB87F27FE8CC80047CD64 /* SecureMyHouseTests */ = {
 			isa = PBXGroup;
 			children = (
+				5A16211F28028D4C00ABB159 /* ViewModels */,
 				5A1FB88027FE8CC80047CD64 /* SecureMyHouseTests.swift */,
 			);
 			path = SecureMyHouseTests;
@@ -154,7 +167,8 @@
 		5A1FB8FD2801F9B30047CD64 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				5A1FB8F92801F7190047CD64 /* UIView+AutoViewLayoutSetup.swift */,
+				5A1FB8F92801F7190047CD64 /* UIView+Extensions.swift */,
+				5A74B6E52805E159005B91E8 /* UIColor+Extensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -309,7 +323,8 @@
 				5A1FB8FC2801F7EC0047CD64 /* TabBarVC.swift in Sources */,
 				5A1FB86E27FE8CC80047CD64 /* HomeVC.swift in Sources */,
 				5A1FB86A27FE8CC80047CD64 /* AppDelegate.swift in Sources */,
-				5A1FB8FA2801F7190047CD64 /* UIView+AutoViewLayoutSetup.swift in Sources */,
+				5A74B6E62805E159005B91E8 /* UIColor+Extensions.swift in Sources */,
+				5A1FB8FA2801F7190047CD64 /* UIView+Extensions.swift in Sources */,
 				5A1FB86C27FE8CC80047CD64 /* SceneDelegate.swift in Sources */,
 				5A1FB8F62801F46B0047CD64 /* APIError.swift in Sources */,
 				5A1FB8F42801F4330047CD64 /* HomeViewModel.swift in Sources */,
@@ -321,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A1FB88127FE8CC80047CD64 /* SecureMyHouseTests.swift in Sources */,
+				5A16212128028D7000ABB159 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

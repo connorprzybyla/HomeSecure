@@ -12,4 +12,5 @@ enum APIError: Error {
     case notSupported
     case handshakeFailure
     case unauthorized
+    case unableToDownload
 }

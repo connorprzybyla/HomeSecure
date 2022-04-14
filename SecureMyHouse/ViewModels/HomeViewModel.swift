@@ -21,6 +21,10 @@ class HomeViewModel: HomeViewModelable {
     }
     
     func getSecurityImage() -> AnyPublisher<UIImage, APIError> {
-        Fail(error: APIError.notSupported).eraseToAnyPublisher()
+        guard let imageURL = URL(string: "https://source.unsplash.com/user/c_v_r"),
+              let data = try? Data(contentsOf: imageURL) else { return Fail(error: APIError.unableToDownload).eraseToAnyPublisher() }
+        guard let image = UIImage(data: data) else { return Fail(error: APIError.unableToDownload).eraseToAnyPublisher() }
+        
+        return Just(image).setFailureType(to: APIError.self).eraseToAnyPublisher()
     }
 }
