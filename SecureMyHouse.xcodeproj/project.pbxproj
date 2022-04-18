@@ -19,7 +19,6 @@
 		5A1FB8F42801F4330047CD64 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB8F32801F4330047CD64 /* HomeViewModel.swift */; };
 		5A1FB8F62801F46B0047CD64 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB8F52801F46B0047CD64 /* APIError.swift */; };
 		5A1FB8FA2801F7190047CD64 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB8F92801F7190047CD64 /* UIView+Extensions.swift */; };
-		5A1FB8FC2801F7EC0047CD64 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FB8FB2801F7EC0047CD64 /* TabBarVC.swift */; };
 		5A74B6E62805E159005B91E8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A74B6E52805E159005B91E8 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +56,6 @@
 		5A1FB8F32801F4330047CD64 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5A1FB8F52801F46B0047CD64 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		5A1FB8F92801F7190047CD64 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		5A1FB8FB2801F7EC0047CD64 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		5A74B6E52805E159005B91E8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +117,7 @@
 			children = (
 				5A1FB8FF2801F9DD0047CD64 /* ViewModels */,
 				5A1FB8FE2801F9BE0047CD64 /* ViewControllers */,
-				5A1FB8FD2801F9B30047CD64 /* UIKit */,
+				5A1FB8FD2801F9B30047CD64 /* Utilities */,
 				5A1FB8F72801F49D0047CD64 /* Models */,
 				5A1FB86927FE8CC80047CD64 /* AppDelegate.swift */,
 				5A1FB86B27FE8CC80047CD64 /* SceneDelegate.swift */,
@@ -164,20 +162,19 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
-		5A1FB8FD2801F9B30047CD64 /* UIKit */ = {
+		5A1FB8FD2801F9B30047CD64 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				5A1FB8F92801F7190047CD64 /* UIView+Extensions.swift */,
 				5A74B6E52805E159005B91E8 /* UIColor+Extensions.swift */,
 			);
-			path = UIKit;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		5A1FB8FE2801F9BE0047CD64 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				5A1FB86D27FE8CC80047CD64 /* HomeVC.swift */,
-				5A1FB8FB2801F7EC0047CD64 /* TabBarVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -320,7 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A1FB8FC2801F7EC0047CD64 /* TabBarVC.swift in Sources */,
 				5A1FB86E27FE8CC80047CD64 /* HomeVC.swift in Sources */,
 				5A1FB86A27FE8CC80047CD64 /* AppDelegate.swift in Sources */,
 				5A74B6E62805E159005B91E8 /* UIColor+Extensions.swift in Sources */,

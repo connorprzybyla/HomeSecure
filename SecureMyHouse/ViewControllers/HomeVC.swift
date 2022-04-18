@@ -24,9 +24,6 @@ class HomeVC: UIViewController {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 400).isActive = true
         return imageView
     }()
         
@@ -38,8 +35,8 @@ class HomeVC: UIViewController {
     }()
     
     private let refreshButton: UIButton = {
-        var configuration = UIButton.Configuration.gray()
-        configuration.cornerStyle = .capsule
+        var configuration = UIButton.Configuration.filled()
+        configuration.cornerStyle = .medium
         configuration.baseForegroundColor = UIColor.white
         configuration.buttonSize = .large
         configuration.title = "Capture Image"
@@ -68,17 +65,11 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         configureScrollView()
         configureAutoViewConstraints()
         configurePullDownToRefresh()
         bindImage()
-    }
-    
-    private func configurePullDownToRefresh() {
-        scrollView.alwaysBounceVertical = true
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        scrollView.addSubview(refreshControl)
     }
     
     // MARK: Selectors
@@ -94,20 +85,18 @@ class HomeVC: UIViewController {
     // MARK: Private
     
     private func forceUpdateImage() {
-        DispatchQueue.main.async {
-            _ = self.viewModel.getSecurityImage()
-                .sink(receiveCompletion: { [weak self] completion in
-                    if case let .failure(apiError) = completion {
-                        print("Unable to retreive image. Error: \(apiError)")
-                        self?.refreshControl.endRefreshing()
-                    }
-                }, receiveValue: { [weak self] image in
-                    DispatchQueue.main.async {
-                        self?.imageView.image = image
-                        self?.refreshControl.endRefreshing()
-                    }
-                })
-        }
+        _ = self.viewModel.getSecurityImage()
+            .sink(receiveCompletion: { [weak self] completion in
+                if case let .failure(apiError) = completion {
+                    print("Unable to retreive image. Error: \(apiError)")
+                    self?.refreshControl.endRefreshing()
+                }
+            }, receiveValue: { [weak self] image in
+                DispatchQueue.main.async {
+                    self?.imageView.image = image
+                    self?.refreshControl.endRefreshing()
+                }
+            })
     }
     
     private func configureScrollView() {
@@ -121,6 +110,16 @@ class HomeVC: UIViewController {
     private func configureAutoViewConstraints() {
         scrollView.setConstraints(equalTo: view)
         stackView.setConstraints(equalTo: scrollView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 70).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 400).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+    }
+    
+    private func configurePullDownToRefresh() {
+        scrollView.alwaysBounceVertical = true
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        scrollView.addSubview(refreshControl)
     }
     
     private func bindImage() {
