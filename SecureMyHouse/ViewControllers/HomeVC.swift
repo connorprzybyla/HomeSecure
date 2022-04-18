@@ -22,16 +22,9 @@ class HomeVC: UIViewController {
         return stackView
     }()
     
-    private lazy var imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
-    }()
-        
-    private let homeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Monitor Home Security"
-        
-        return label
     }()
     
     private let refreshButton: UIButton = {

@@ -9,7 +9,7 @@ import Combine
 import UIKit
 
 protocol HomeViewModelable {
-    func getSecurityImage() -> AnyPublisher<UIImage, APIError>
+    func getSecurityImage() -> AnyPublisher<UIImage, ImageError>
 }
 
 class HomeViewModel: HomeViewModelable {
@@ -19,19 +19,19 @@ class HomeViewModel: HomeViewModelable {
         self.urlSession = urlSession
     }
     
-    func getSecurityImage() -> AnyPublisher<UIImage, APIError> {
+    func getSecurityImage() -> AnyPublisher<UIImage, ImageError> {
         guard let imageURL = URL(string: "https://source.unsplash.com/user/c_v_r"),
               let data = try? Data(contentsOf: imageURL) else {
-            return Fail(error: APIError.unableToDownload)
+            return Fail(error: ImageError.unableToConvertToData)
                 .eraseToAnyPublisher()
         }
         guard let image = UIImage(data: data) else {
-            return Fail(error: APIError.unableToDownload)
+            return Fail(error: ImageError.unableToCreateUIImage)
                 .eraseToAnyPublisher()
         }
         
         return Just(image)
-            .setFailureType(to: APIError.self)
+            .setFailureType(to: ImageError.self)
             .eraseToAnyPublisher()
     }
 }
