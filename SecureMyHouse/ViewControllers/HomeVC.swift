@@ -105,10 +105,12 @@ class HomeVC: UIViewController {
         scrollView.setConstraints(equalTo: view)
         stackView.setConstraints(equalTo: scrollView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: 400).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
-        refreshButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: 400),
+            imageView.heightAnchor.constraint(equalToConstant: 500),
+            refreshButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     private func configurePullDownToRefresh() {

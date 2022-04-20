@@ -16,16 +16,15 @@ protocol HomeViewModelable {
 class HomeViewModel: HomeViewModelable {
     private let urlSession: URLSession
     
-    
     init(urlSession: URLSession) {
         self.urlSession = urlSession
     }
         
     func getSecurityImage(completionHandler: @escaping (UIImage?) -> Void) {
         let storage = Storage.storage()
-        let storageRef = storage.reference(forURL: "gs://ece-554.appspot.com/data/dummyImage.jpeg")
+        let storageRef = storage.reference(forURL: "gs://ece-554.appspot.com/data/photo.jpg")
 
-        storageRef.getData(maxSize: 1 * 1024 * 1024) { [weak self] data, error in
+        storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
           if let error = error {
               print("Logger: an error has occured. \(error)")
           } else {
@@ -34,6 +33,5 @@ class HomeViewModel: HomeViewModelable {
               completionHandler(UIImage(data: data))
           }
         }
-        
     }
 }
