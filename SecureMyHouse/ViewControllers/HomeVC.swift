@@ -18,8 +18,14 @@ class HomeVC: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
         return stackView
+    }()
+    
+    private let label: UILabel = {
+        let label = UILabel()
+        label.text = "Monitoring"
+        return label
     }()
     
     private let imageView: UIImageView = {
@@ -78,22 +84,17 @@ class HomeVC: UIViewController {
     // MARK: Private
     
     private func forceUpdateImage() {
-        _ = self.viewModel.getSecurityImage()
-            .sink(receiveCompletion: { [weak self] completion in
-                if case let .failure(apiError) = completion {
-                    print("Unable to retreive image. Error: \(apiError)")
-                    self?.refreshControl.endRefreshing()
-                }
-            }, receiveValue: { [weak self] image in
-                DispatchQueue.main.async {
-                    self?.imageView.image = image
-                    self?.refreshControl.endRefreshing()
-                }
-            })
+        self.viewModel.getSecurityImage(completionHandler: { [weak self] image in
+            DispatchQueue.main.async {
+                self?.imageView.image = image
+                self?.refreshControl.endRefreshing()
+            }
+        })
     }
     
     private func configureScrollView() {
         refreshButton.addTarget(self, action: #selector(didTapCapture), for: .touchUpInside)
+        stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(refreshButton)
         scrollView.addSubview(stackView)
@@ -104,9 +105,10 @@ class HomeVC: UIViewController {
         scrollView.setConstraints(equalTo: view)
         stackView.setConstraints(equalTo: scrollView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 70).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 400).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        refreshButton.translatesAutoresizingMaskIntoConstraints = false
+        refreshButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     private func configurePullDownToRefresh() {
@@ -116,15 +118,11 @@ class HomeVC: UIViewController {
     }
     
     private func bindImage() {
-        viewModel.getSecurityImage()
-            .sink(receiveCompletion: { completion in
-                if case let .failure(apiError) = completion {
-                    print("Unable to retreive image. Error: \(apiError)")
-                }
-            }, receiveValue: { [weak self] image in
-                DispatchQueue.main.async {
-                    self?.imageView.image = image
-                }
-            }).store(in: &subscriptions)
+        self.viewModel.getSecurityImage(completionHandler: { [weak self] image in
+            DispatchQueue.main.async {
+                self?.imageView.image = image
+                self?.refreshControl.endRefreshing()
+            }
+        })
     }
 }

@@ -6,32 +6,34 @@
 //
 
 import Combine
+import Firebase
 import UIKit
 
 protocol HomeViewModelable {
-    func getSecurityImage() -> AnyPublisher<UIImage, ImageError>
+    func getSecurityImage(completionHandler: @escaping (UIImage?) -> Void)
 }
 
 class HomeViewModel: HomeViewModelable {
     private let urlSession: URLSession
     
+    
     init(urlSession: URLSession) {
         self.urlSession = urlSession
     }
-    
-    func getSecurityImage() -> AnyPublisher<UIImage, ImageError> {
-        guard let imageURL = URL(string: "https://source.unsplash.com/user/c_v_r"),
-              let data = try? Data(contentsOf: imageURL) else {
-            return Fail(error: ImageError.unableToConvertToData)
-                .eraseToAnyPublisher()
-        }
-        guard let image = UIImage(data: data) else {
-            return Fail(error: ImageError.unableToCreateUIImage)
-                .eraseToAnyPublisher()
+        
+    func getSecurityImage(completionHandler: @escaping (UIImage?) -> Void) {
+        let storage = Storage.storage()
+        let storageRef = storage.reference(forURL: "gs://ece-554.appspot.com/data/dummyImage.jpeg")
+
+        storageRef.getData(maxSize: 1 * 1024 * 1024) { [weak self] data, error in
+          if let error = error {
+              print("Logger: an error has occured. \(error)")
+          } else {
+            // Data for "images/island.jpg" is returned
+              guard let data = data else { return }
+              completionHandler(UIImage(data: data))
+          }
         }
         
-        return Just(image)
-            .setFailureType(to: ImageError.self)
-            .eraseToAnyPublisher()
     }
 }
