@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        let viewModel = HomeViewModel(urlSession: URLSession.shared)
+        let viewModel = HomeViewModel()
         window?.rootViewController = UINavigationController(
             rootViewController: HomeVC(viewModel: viewModel)
         )

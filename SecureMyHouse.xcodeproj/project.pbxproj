@@ -21,6 +21,7 @@
 		5A3FAF8A280DDC6700ACB3F7 /* ImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FAF89280DDC6700ACB3F7 /* ImageError.swift */; };
 		5A3FAF91280F6AF700ACB3F7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5A3FAF90280F6AF700ACB3F7 /* FirebaseStorage */; };
 		5A3FAF95280F821000ACB3F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3FAF94280F821000ACB3F7 /* GoogleService-Info.plist */; };
+		5A3FAF972810E46200ACB3F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3FAF962810E46200ACB3F7 /* GoogleService-Info.plist */; };
 		5A74B6E62805E159005B91E8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A74B6E52805E159005B91E8 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		5A1FB8F92801F7190047CD64 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		5A3FAF89280DDC6700ACB3F7 /* ImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageError.swift; sourceTree = "<group>"; };
 		5A3FAF94280F821000ACB3F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A3FAF962810E46200ACB3F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A74B6E52805E159005B91E8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 				5A1FB87227FE8CC80047CD64 /* Assets.xcassets */,
 				5A1FB87427FE8CC80047CD64 /* LaunchScreen.storyboard */,
 				5A1FB87727FE8CC80047CD64 /* Info.plist */,
+				5A3FAF962810E46200ACB3F7 /* GoogleService-Info.plist */,
 				5A3FAF94280F821000ACB3F7 /* GoogleService-Info.plist */,
 			);
 			path = SecureMyHouse;
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A1FB87627FE8CC80047CD64 /* LaunchScreen.storyboard in Resources */,
+				5A3FAF972810E46200ACB3F7 /* GoogleService-Info.plist in Resources */,
 				5A1FB87327FE8CC80047CD64 /* Assets.xcassets in Resources */,
 				5A3FAF95280F821000ACB3F7 /* GoogleService-Info.plist in Resources */,
 			);
